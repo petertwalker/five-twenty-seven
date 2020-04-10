@@ -1,0 +1,19 @@
+{
+  "name": "five-twenty-seven",
+  "version": "1.0.0",
+  "description": "527",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petertwalker/five-twenty-seven.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petertwalker/five-twenty-seven/issues"
+  },
+  "homepage": "https://github.com/petertwalker/five-twenty-seven#readme"
+}
