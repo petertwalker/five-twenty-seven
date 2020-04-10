@@ -1,14 +1,392 @@
 <!DOCTYPE html>
 <html>
 <body>
+<style>
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
-<h1 style="text-align:center;">Andys Crazy Stat and Highlight Page</h1>
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; /* Used in this example to enable scrolling */
+}
+* {box-sizing: border-box;}
+.container {
+position: relative;
+width: 100%;
+max-width: 200px;
+}
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.overlay {
+position: absolute; 
+bottom: 0; 
+background: rgb(0, 0, 0);
+background: rgba(0, 0, 0, 0.726); /* Black see-through */
+color: #f1f1f1; 
+width: 100%;
+transition: .5s ease;
+opacity:0;
+color: white;
+font-size: 20px;
+padding: 20px;
+text-align: center;
+}
+.container:hover .overlay {
+  opacity: 1;
+}
+.column {
+  float: left;
+  width: 15%;
+  padding: 5px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+  text-align: center;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+.searchbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.521);
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .searchbar a, .searchbar input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .searchbar input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("banner.png");
+
+  /* Set a specific height */
+  height: 30%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+</style>
+<div class="hero-image">
+    <div class="hero-text">
+      <h1>Big Time Sports</h1>
+      <p>by andy</p>
+    </div>
+  </div>
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="andyspage.html">Andy's Big Time Sports</a>
+    <a href="john.html">John's Page</a>
+  </div>
+<br>
+<!--<h1 style="text-align:center;" font>Andys Crazy Stat and Highlight Page</h1>-->
+
 <hr>
-<img src="AndysStuff/smartpic1.jpg" width="500" height="600" title="Marcus Smart Fresh Pic" alt="Marcus Smart Freshest Man Alive" usemap="#map1">
-<map name="map1">
-    <area shape = "rect" coords = "0, 0, " >
-</map>
-<p>Here you will find all my crazy and fun sport stats. </p>
+<p style="text-align:center;">Here you will find all my crazy and fun sport stats. Click on any player picture to find highlight videos and season stats. </p>
+<button class="tablink" onclick="openPage('NBA', this, 'red')"id="defaultOpen">NBA</button>
+<button class="tablink" onclick="openPage('NFL', this, 'green')" >NFL</button>
+<button class="tablink" onclick="openPage('Retired', this, 'blue')">Retired</button>
+<button class="tablink" onclick="openPage('Blog', this, 'orange')">Blog/News/Memes</button>
+<div class="searchbar">
+    <input type="text" placeholder="Search Player..">
+  </div>
+<div id="NBA" class="tabcontent">
+    <div class="row">
+        <div class="column">
+            <div class="container">
+                <img src="smartpic1.jpg" width="200" height="250" title="Marcus Smart Fresh Pic" alt="Marcus Smart Freshest Man Alive" usemap="#map1">
+                <div class="overlay">Marcus Smart</div>
+                <map name="map1">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="MarcusSmartPage.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="JaysonTatum.png" width="200" height="250" title="Jayson Tatum Fresh Pic"usemap="#map4">
+                <div class="overlay">Jayson Tatum</div>
+                <map name="map4">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="JaysonTatum.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="LebronJames.jpg" width="200" height="250" title="Lebron James Ugly Pic"usemap="#map6">
+                <div class="overlay">Lebron James</div>
+                <map name="map6">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="LebronJames.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="ZionWilliamson.jpg" width="200" height="250" title="Zion Williamson Strong Pic"usemap="#map7">
+                <div class="overlay">Zion Williamson</div>
+                <map name="map7">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="ZionWilliamson.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="LonzoBall.jpg" width="200" height="250" title="Lonzo Ball Steezy Pic"usemap="#mapLonzo">
+                <div class="overlay">Lonzo Ball</div>
+                <map name="mapLonzo">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="LonzoBall.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="KembaWalker.png" width="200" height="250" title="Kemba Walker Steezy Pic"usemap="#mapKemba">
+                <div class="overlay">Kemba Walker</div>
+                <map name="mapKemba">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="KembaWalker.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="JaylenBrown.png" width="200" height="250" title="Jaylen Brown Steezy Pic"usemap="#mapJaylen">
+                <div class="overlay">Jaylen Brown</div>
+                <map name="mapJaylen">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="JaylenBrown.html" >
+                </map>
+            </div>
+        </div>
+    </div>
+  </div>
+<div id="NFL" class="tabcontent">
+    <div class="row">
+        <div class="column">
+            <div class="container">
+                <img src="gilmorepic1.jpg" width="200" height="250" title="Stephon Gilmore Fresh Pic" alt="Stephon Gilmore Freshest NFL Player Alive" usemap="#map2">
+                <div class="overlay">Stephon Gilmore</div>
+                <map name="map2">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="StephonGilmorePage.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="JulianEdelman.png" width="200" height="250" title="Julian Edelman Steezy Pic"usemap="#mapJulian">
+                <div class="overlay">Julian Edelman</div>
+                <map name="mapJulian">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="JulianEdelman.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="SonyMichel.png" width="200" height="250" title="Sony Michel Steezy Pic"usemap="#mapSony">
+                <div class="overlay">Sony Michel</div>
+                <map name="mapSony">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="SonyMichel.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="JamesWhite.png" width="200" height="250" title="James White Steezy Pic"usemap="#mapJames">
+                <div class="overlay">James White</div>
+                <map name="mapJames">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="JamesWhite.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="EzekielElliot.png" width="200" height="250" title="Ezekiel Elliot Steezy Pic"usemap="#mapEzekiel">
+                <div class="overlay">Ezekiel Elliot</div>
+                <map name="mapEzekiel">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="EzekielElliot.html" >
+                </map>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div id="Retired" class="tabcontent">
+    <div class="row"> 
+        <div class="column">
+            <div class="container">
+                <img src="KobeBryant.jpg" width="200" height="250" title="Kobe Bryant Fresh Pic"usemap="#map5">
+                <div class="overlay">Kobe Bryant</div>
+                <map name="map5">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="KobeBryant.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="patmcafee.png" width="200" height="250" title="Pat McAfee Fresh Pic" alt="Pat McAfee Freshest Kicker Alive" usemap="#map3">
+                <div class="overlay">Pat McAfee</div>
+                <map name="map3">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="PatMcAfee.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="MichaelJordan.png" width="200" height="250" title="Michael Jordan Fresh Pic"usemap="#mapMichael">
+                <div class="overlay">Michael Jordan</div>
+                <map name="mapMichael">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="MichaelJordan.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="shaq.png" width="200" height="250" title="Shaq Steezy Pic"usemap="#mapShaq">
+                <div class="overlay">Shaqueel O'Neal</div>
+                <map name="mapShaq">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="Shaq.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="kevingarnett.png" width="200" height="250" title="Kevin Garnett Steezy Pic"usemap="#mapKevin">
+                <div class="overlay">Kevin Garnett</div>
+                <map name="mapKevin">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="Kevingarnett.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="paulpierce.png" width="200" height="250" title="Paul Pierce Shittin Pic"usemap="#mapPaul">
+                <div class="overlay">Paul Pierce</div>
+                <map name="mapPaul">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="PaulPierce.html" >
+                </map>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <img src="alleniverson.png" width="200" height="250" title="Allen Iverson Steezy Pic"usemap="#mapAllen">
+                <div class="overlay">Allen Iverson</div>
+                <map name="mapAllen">
+                    <area shape = "rect" coords = "0, 0, 200, 250" href="AllenIverson.html" >
+                </map>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="Blog" class="tabcontent">
+<font color="black">
+    <h3>Daily Ramblings</h3>
+    <p>Johns favorite basketball player is Zion Williamson. Petes favorite is Luca Doncic.</p>
+</font>
+</div>
 
+
+
+<script>
+    function openPage(pageName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+    
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    </script>
 </body>
 </html>
